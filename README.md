@@ -16,8 +16,8 @@ Le Trancendances Online Festival a nécessité une infrastructure informatique c
 
 Chaque salle du festival est constituée de trois serveurs :
 
-* Un serveur MPD permettant d'ordonner et contrôler la lecture des différents fichiers audios composant la salle
-* Deux serveurs Icecast relayant le flux audio
+* Un serveur [MPD](https://musicpd.org/) permettant d'ordonner et contrôler la lecture des différents fichiers audios composant la salle
+* Deux serveurs [Icecast](http://www.icecast.org/) relayant le flux audio
 
 Le serveur MPD se positionne donc en recul. Il contient les DJ sets et autres éléments audios ordonnés par une playlist. Contrôlé par le client MPD [mpc](https://musicpd.org/clients/mpc/), il envoi de façon automatisée (grâce à une tâche cron) le flux audio correspondant à sa salle aux deux serveurs Icecast. Ces deux serveurs sont chacun une copie de l'autre (à l'exception du nom d'hôte), afin de permettre une répartition de la charge.
 
@@ -43,7 +43,7 @@ Sa configuration est disponible dans le fichier `proxy.caddyfile` de ce dépôt.
 
 Trancendances est une association française loi 1901 à but non lucratif travaillant à populariser la musique trance en France. Avec plus de 5 ans d'expérience dans ce genre musical et la scène internationnale qui l'entoure, nous avons eu l'occasion de prendre part à l'organisation de grands événements français (Wackii Time Party, Fables Festival...), travailler avec les meilleurs labels et artistes autour du monde, et promouvoir cette musique au travers de nos podcasts, reviews, articles et concours.
 
-Un des aspects de la gestion de Trancendances qui nous tient le plus à coeur est la transparence, au même titre que le respect de ses utilisateurs (absence de pistage sauf extrême nécessité) et l'utilisation de logiciels libres en accord avec leur philosophie.
+Un des aspects de la gestion de Trancendances qui nous tient le plus à cœur est la transparence, au même titre que le respect de ses utilisateurs (absence de pistage sauf extrême nécessité) et l'utilisation de logiciels libres en accord avec leur philosophie.
 
 
 ## Nous contacter
