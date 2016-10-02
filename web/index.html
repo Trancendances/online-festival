@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Trancendances Online Festival</title>
+
+
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="player.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,900,100italic,100,300italic,400italic,500,500italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <meta name="author" content="Trancendances Online Festival" />
+  <meta name="description" content="Trancendances célèbre ses cinq ans d'existence avec un festival entièrement en ligne le vendredi 30 septembre, mettant aux platines petits artistes et têtes d'affiche à la réputation internationale, et vous proposant de gagner les meilleurs albums trance du moment ! " />
+  <meta name="identifier-url" content="http://festival.trancendances.fr/" />
+  <meta property="og:url" content="https://festival.trancendances.fr/" />
+  <meta property="og:description" content="Trancendances célèbre ses cinq ans d'existence avec un festival entièrement en ligne le vendredi 30 septembre, mettant aux platines petits artistes et têtes d'affiche à la réputation internationale, et vous proposant de gagner les meilleurs albums trance du moment ! " />
+  <meta property="og:site_name" content="Trancendances Online Festival"/>
+  <meta property="og:image" content="https://www.trancendances.fr/themes/Trancendances/images/website-thumbnail-default.jpg" />
+  <meta property="og:title" content="Trancendances Online Festival" />
+  <link rel="alternate" type="application/rss+xml"  href="https://files.trancendances.fr/podcasts.xml" title="Trancendances : L'émission">
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.festival.trancendances.fr"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.trancendances.fr/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '6']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.trancendances.fr/piwik/piwik.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+</head>
+<body>
+<header>
+	<div>
+		<a href="#" id="logo"></a>
+	</div>
+</header>
+<nav class="top-bar">
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="active"><a href="#" title="Bienvenue">Festival</a></li>
+        <li><a href="#timetable" title="Programmation">Programmation</a></li>
+        <li><a href="#chat" title="Chat">Chat</a></li>
+        <li><a href="https://www.trancendances.fr/" title="Retour au site principal" target="_blank">Retour au site principal</a></li>
+      </ul>
+
+    <!-- Right Nav Section -->
+
+  </section>
+</nav>
+
+
+<section role="content" class="content">
+    <div id="player">
+        <div id="controls">
+            <div id="pause"><img src="images/play.png" alt="" /></div>
+            <div id="mute"><img src="images/sound.png" alt="" /></div>
+        </div>
+        <div id="rooms">
+            <div id="bluelagoon">
+                <img src="images/blue-lagoon.png" alt="" />
+                <p><a href="pls/bluelagoon.m3u">Écouter dans votre lecteur favori</a></p>
+            </div>
+            <div id="longisland">
+                <img src="images/long-island.png" alt="" />
+                <p><a href="pls/longisland.m3u">Écouter dans votre lecteur favori</a></p>
+            </div>
+            <div id="bloodymary">
+                <img src="images/bloody-mary.png" alt="" />
+                <p><a href="pls/bloodymary.m3u">Écouter dans votre lecteur favori</a></p>
+            </div>
+            <p>Cliquez sur l'image d'une salle pour l'écouter</p>
+        </div>
+    </div>
+
+    <div id="timetable">
+        <h1>Programmation</h1>
+        <img src="images/tof_timetable.jpg" width="61%" />
+        <img src="images/tof_timetable.jpg" />
+    </div>
+    
+    <div id="chat">
+        <h1>Chat</h1>
+        <iframe src="https://webchat.freenode.net?channels=%23trancendances&uio=d4" width="647" height="400"></iframe>
+    </div>
+</section>
+
+<script type="text/javascript">
+    /**** Trancendances Online Festival audio player ****/
+
+    // Streams URLs
+    var streams = {
+        blueLagoon: 'http://streams.tof.trancendances.fr/bluelagoon.ogg',
+        longIsland: 'http://streams.tof.trancendances.fr/longisland.ogg',
+        bloodyMary: 'http://streams.tof.trancendances.fr/bloodymary.ogg'
+    };
+
+    // Player's DOM elements
+    var elements = {
+        blueLagoon: document.querySelector('#bluelagoon'),
+        longIsland: document.querySelector('#longisland'),
+        bloodyMary: document.querySelector('#bloodymary'),
+        pause: document.querySelector('#pause'),
+        mute: document.querySelector('#mute')
+    };
+
+    // currentAudio will contain the audio DOM element bound to the stream the
+    //              user is currently listening to. If null (at document load),
+    //              it will mean that no audio is playing.
+    // paused indicates whether the playback has been paused by the user. For
+    //        simplicity's sake, we'll assume that the playback is paused at
+    //        page load (while there's actually no playback to pause yet).
+    // muted indicates whether the playback's audio has been muted by the user.
+    var currentAudio = null,
+        paused = true,
+        muted = false;
+
+    // Play the stream passed as argument
+    // streamStr: String, stream URL 
+    function play(streamStr) {
+        if(currentAudio) {
+            currentAudio.pause();
+        }
+
+        currentAudio = new Audio(streamStr);
+        currentAudio.addEventListener('canplay', function() {
+            elements.pause.children[0].src = 'images/pause.png';
+            paused = false;
+            currentAudio.play();
+        });
+    }
+
+    // Event listeners for room switching
+    elements.blueLagoon.addEventListener('click', function() {
+        play(streams.blueLagoon);
+        elements.blueLagoon.className = 'playing';
+        elements.longIsland.className = '';
+        elements.bloodyMary.className = '';
+    });
+
+    elements.longIsland.addEventListener('click', function() {
+        play(streams.longIsland);
+        elements.blueLagoon.className = '';
+        elements.longIsland.className = 'playing';
+        elements.bloodyMary.className = '';
+    });
+
+    elements.bloodyMary.addEventListener('click', function() {
+        play(streams.bloodyMary);
+        elements.blueLagoon.className = '';
+        elements.longIsland.className = '';
+        elements.bloodyMary.className = 'playing';
+    });
+
+    // Event listener for stream pausing
+    elements.pause.addEventListener('click', function() {
+        // Only pause if audio is playing
+        if(currentAudio) {
+            if(paused) {
+                elements.pause.children[0].src = 'images/pause.png';
+                currentAudio.play();
+            } else {
+                elements.pause.children[0].src = 'images/play.png';
+                currentAudio.pause();
+            }
+            paused = !paused;
+        }
+    });
+ 
+    // Event listener for audio muting
+    elements.mute.addEventListener('click', function() {
+        // Only mute if audio is playing
+        if(currentAudio) {
+            currentAudio.muted = !muted;
+            muted = !muted;
+            if(muted) {
+                elements.mute.children[0].src = 'images/mute.png'
+            } else {
+                elements.mute.children[0].src = 'images/sound.png'                
+            }
+        }
+    });
+</script>
+
+<footer>
+	<p><a href="https://festival.trancendances.fr/">Trancendances Online Festival</a> &copy; 2016<br />
+	Site réalisé par Frenchlabs - <a href="https://www.trancendances.fr/legals" target="_blank" title="Mentions légales">Mentions légales</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+festival.trancendances.fr {
+    tls brendan@trancendances.fr
+    proxy / web.tof.trancendances.fr:80
+}
+
+streams.tof.trancendances.fr {
+    tls brendan@trancendances.fr
+    proxy /bluelagoon.ogg blue-lagoon1.tof.trancendances.fr:8000 blue-lagoon2.tof.trancendances.fr:8000
+    proxy /longisland.ogg long-island1.tof.trancendances.fr:8000 long-island2.tof.trancendances.fr:8000
+    proxy /bloodymary.ogg bloody-mary1.tof.trancendances.fr:8000 bloody-mary2.tof.trancendances.fr:8000
+}

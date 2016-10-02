@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Trancendances Online Festival</title>
+
+
+  <link rel="stylesheet" href="app.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300,900,100italic,100,300italic,400italic,500,500italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <meta name="description" content="La Trance, vous connaissez ? Redécouvrez la musique électronique en compagnie de passionnés du genre !" />
+  <meta name="author" content="Trancendances" />
+  <meta name="identifier-url" content="http://www.trancendances.fr/" />
+  <meta property="og:description" content="La Trance, vous connaissez ? Redécouvrez la musique électronique en compagnie de passionnés du genre !" />
+  <meta property="og:url" content="https://www.trancendances.fr/" />
+  <meta property="og:site_name" content="Trancendances"/>
+  <meta property="og:image" content="https://www.trancendances.fr/themes/Trancendances/images/website-thumbnail-default.jpg" />
+  <meta property="og:title" content="Trancendances" />
+  <link rel="alternate" type="application/rss+xml"  href="https://files.trancendances.fr/podcasts.xml" title="Trancendances : L'émission">
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.festival.trancendances.fr"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.trancendances.fr/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '6']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.trancendances.fr/piwik/piwik.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+</head>
+<body>
+<header>
+	<div>
+		<a href="/" id="logo"></a>
+	</div>
+</header>
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">Trancendances</a></h1>
+    </li>
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+
+<section class="top-bar-section">
+    <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="active"><a href="/" title="Bienvenue">Festival</a></li>
+        <li><a href="https://www.trancendances.fr/" title="Retour au site principal" target="_blank">Retour au site principal</a></li>
+      </ul>
+
+    <!-- Right Nav Section -->
+
+  </section>
+</nav>
+
+
+<section role="content" class="content">
+    Début du Trancendances Online Festival dans
+    <div id="timer"></div>
+
+    <p style="margin-top:50px;margin-bottom:0;font-size:80%"><a target="_blank" href="http://www.trancendances.fr/news/trancendances-online-festival">Qu'est-ce que c'est ?</a> - <a target="_blank" href="https://www.facebook.com/events/1585417038429421/">Événement Facebook</a></p>
+
+    <p style="font-size:70%;margin-top:50px">
+        <img src="http://files.trancendances.fr/pr/media/tof_timetable.jpg" style="width:900px" />
+    </p>
+</section>
+
+<script type="text/javascript">
+    function getTimeRemaining(endtime){
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor( (t/1000) % 60 );
+      var minutes = Math.floor( (t/1000/60) % 60 );
+      var hours = Math.floor( (t/(1000*60*60)) % 24 );
+      var days = Math.floor( t/(1000*60*60*24) );
+      return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+
+    function displayTime(display) {
+        var time = getTimeRemaining("September 30, 2016 19:00:00");
+        display.innerHTML = time.days + " jours, "
+        display.innerHTML += time.hours + "h " + time.minutes + "min "
+        display.innerHTML += time.seconds + "s"
+    }
+
+    window.onload = function () {
+        var display = document.querySelector('#timer');
+        var time = {}
+        displayTime(display);
+        setInterval(function () {
+            displayTime(display);
+        }, 1000);
+    };
+</script>
+
+<footer>
+	<p><a href="https://festival.trancendances.fr/">Trancendances Online Festival</a> &copy; 2016<br />
+	Site réalisé par Frenchlabs - <a href="https://www.trancendances.fr/legals" target="_blank" title="Mentions légales">Mentions légales</a></p>
+</footer>
+</body>
+</html>

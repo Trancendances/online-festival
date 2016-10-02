@@ -1,0 +1,101 @@
+#player {
+    max-width: 71.42857em;
+    width: 61%;
+    margin: auto;
+    background: black;
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#player #controls {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#player #controls div:hover, #player #rooms div:hover {
+    cursor: pointer;
+}
+
+#player #controls #pause {
+    float: left;
+}
+
+#player #rooms div {
+    display: inline-block;
+    padding: 50px;
+}
+
+#player #controls img {
+    height: 50px;
+}
+
+#player #rooms img {
+    height: 100px;
+}
+
+#player p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 40%;
+    margin-bottom: 0;
+}
+
+#player a, #player a:hover, #player a:visited {
+    color: white;
+}
+
+#player a:hover {
+    text-decoration: none;
+}
+
+.playing {
+    background: #262626;
+    border-radius: 15px;
+}
+
+#timetable img:last-child {
+    display: none;
+}
+
+iframe {
+    border: none;
+    width: 61%;
+    height: 500px;
+}
+
+h1 {
+    font-size: 120%;
+}
+
+@media only screen and (max-width: 54.85714em) {
+    h1 {
+        display: none;
+    }
+
+    section.content {
+        margin: 0;
+    }
+    
+    #player, iframe {
+        width:100%;
+        margin: 0;
+    }
+    
+    #player #rooms div {
+        padding: 25px;
+    }
+
+    #timetable img {
+        display: none;
+    }
+
+    #timetable img:last-child {
+        display: inline;
+    }
+    
+    body > footer {
+        margin: 0;
+    }
+}
